@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\SanPham;
+use App\DonGia;
+use App\Loai;
+use App\SanPham_Loai;
+use App\HinhThucUuDai;
+use App\UuDai;
+
 class trangchinhController extends Controller
 {
     public function trangchu()
@@ -18,9 +25,12 @@ class trangchinhController extends Controller
         return view('trangchinh.gioithieu.gioithieu');
     }
 
-    public function sanpham()
+    public function getsanpham()
     {
-        return view('trangchinh.sanpham.sanpham');
+        $sanpham = SanPham::paginate(9);
+        $dongia = DonGia::all();
+        $loai = Loai::all();
+        return view('trangchinh.sanpham.sanpham', compact('sanpham','dongia','loai'));
     }
 
     public function giohang()

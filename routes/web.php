@@ -27,7 +27,7 @@ Route::group(['prefix'=>'trangchinh'],function(){
 	});
 
 	Route::group(['prefix'=>'sanpham'],function(){
-		Route::get('sanpham', 'trangchinhController@sanpham');
+		Route::get('sanpham', 'trangchinhController@getsanpham');
 	});
 
 	Route::group(['prefix'=>'chitietsanpham'],function(){
